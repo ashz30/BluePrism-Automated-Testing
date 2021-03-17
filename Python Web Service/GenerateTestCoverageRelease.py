@@ -14,7 +14,7 @@ server = cp['properties']['server']
 database = cp['properties']['database']
 trusted = "yes"
 testcoveragesql = cp['properties']['testcoveragesql']
-outputFolderLocation = cp['properties']['outputFolderLocation']
+outputFolderLocation = cp['properties']['newreleaseoutputFolderLocation']
 
 
 
@@ -75,11 +75,11 @@ def updateXML(releaseXml, stagidsDB):
     print("Stageid db: ", stagidsDB)
     for stageidelement in stages:
         stageid = stageidelement.getAttribute("stageid")
-        print("stageid" , stageid)
+        print("stageid present in release:" , stageid)
 
         if stageid in stagidsDB:
             stageidelement.appendChild(formatelement.cloneNode(True))
-            print("stageid found " , stageid)
+            print("stageid found:" , stageid)
     #print(doc1.toxml())
     return doc1
 
